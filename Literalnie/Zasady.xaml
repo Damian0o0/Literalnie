@@ -49,8 +49,6 @@
             </Button.Template>
         </Button>
 
-
-
         <TextBlock VerticalAlignment="Top" Margin="20,15,130,0" Height="15px" Width="450px" FontSize="11px">
         Odgadnij dzisiejsze słowo na <Run FontWeight="Bold">LITERALNIE</Run>!
         </TextBlock>

@@ -22,8 +22,6 @@ namespace Literalnie
 
         private void X_Click(object sender, RoutedEventArgs e)
         {
-            e.Handled = true;
-
             this.Hide();
 
             MainWindow mainWindow = new MainWindow();

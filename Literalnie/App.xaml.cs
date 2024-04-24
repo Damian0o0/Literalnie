@@ -12,10 +12,8 @@ namespace Literalnie
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            base.OnStartup(e);
-
-            Zasady popup = new Zasady();
-            popup.ShowDialog();
+            Zasady zasady = new Zasady();
+            zasady.ShowDialog();
         }
     }
 }
