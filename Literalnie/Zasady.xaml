@@ -16,7 +16,19 @@
             <Setter Property="Foreground" Value="#FFFFFF"/>
             <Setter Property="Grid.Column" Value="0"/>
         </Style>
+        <Style TargetType="Window">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Window">
+                        <Border BorderBrush="#121213" BorderThickness="3" Background="#121213" CornerRadius="25">
+                            <ContentPresenter/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
+
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -24,8 +36,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Background="#538D4E" Foreground="#FFFFFF" Margin="26,15,10,619"
-            BorderThickness="0" BorderBrush="Transparent" Content="X" Click="X_Click" RenderTransformOrigin="-1.866,0.439" Grid.Column="1">
+        <Button Click="X_Click" Background="#538D4E" Foreground="#FFFFFF" Margin="26,15,10,619"
+            BorderThickness="0" BorderBrush="Transparent" Content="X" RenderTransformOrigin="-1.866,0.439" Grid.Column="1">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border CornerRadius="10" Background="{TemplateBinding Background}" 

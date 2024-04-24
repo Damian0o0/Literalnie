@@ -7,17 +7,6 @@
         mc:Ignorable="d"
         Title="Literalnie" Height="700" Width="700">
     <Grid>
-        <Button Background="#538D4E" Foreground="#FFFFFF" Margin="651,10,10,640"
-            BorderThickness="0" BorderBrush="Transparent" Content="X" Click="Zamknij_Click">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border CornerRadius="10" Background="{TemplateBinding Background}" 
-                        BorderThickness="{TemplateBinding BorderThickness}" 
-                        BorderBrush="{TemplateBinding BorderBrush}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
+        
     </Grid>
 </Window>

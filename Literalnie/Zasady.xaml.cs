@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,9 +22,9 @@ namespace Literalnie
 
         private void X_Click(object sender, RoutedEventArgs e)
         {
-            e.Handled = true; 
+            e.Handled = true;
 
-            this.Hide(); 
+            this.Hide();
 
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();

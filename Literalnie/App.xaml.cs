@@ -18,5 +18,4 @@ namespace Literalnie
             popup.ShowDialog();
         }
     }
-
 }

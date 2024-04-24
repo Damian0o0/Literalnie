@@ -21,14 +21,5 @@ namespace Literalnie
         {
             InitializeComponent();
         }
-
-        private void Zamknij_Click(object sender, RoutedEventArgs e)
-        {
-            Zasady zasady = new Zasady();
-
-            zasady.Close();
-            this.Close();
-
-        }
     }
 }
