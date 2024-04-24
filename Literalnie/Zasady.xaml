@@ -5,15 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:local="clr-namespace:Literalnie"
         mc:Ignorable="d"
-        Height="600" Width="600" ResizeMode="NoResize" Background="#121213" Foreground="#FFFFFF">
+        Height="700" Width="700" ResizeMode="NoResize" Background="#121213" Foreground="#FFFFFF" WindowStyle="None">
+
+    <Window.Resources>
+        <Style TargetType="Hyperlink">
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="TextDecorations" Value="Underline"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="Grid.Column" Value="0"/>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Column="0" Background="#538D4E" Foreground="#FFFFFF" Margin="534,10,46,509" Width="35px"
-            BorderThickness="0" BorderBrush="Transparent" Content="X" Click="X_Click" RenderTransformOrigin="-1.866,0.439">
+        <Button Background="#538D4E" Foreground="#FFFFFF" Margin="26,15,10,619"
+            BorderThickness="0" BorderBrush="Transparent" Content="X" Click="X_Click" RenderTransformOrigin="-1.866,0.439" Grid.Column="1">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border CornerRadius="10" Background="{TemplateBinding Background}" 
@@ -27,19 +39,48 @@
 
 
 
-        <TextBlock Grid.Column="0" VerticalAlignment="Top" Margin="30,15,130,0" Height="15px" Width="450px" FontSize="12px">
+        <TextBlock VerticalAlignment="Top" Margin="20,15,130,0" Height="15px" Width="450px" FontSize="11px">
         Odgadnij dzisiejsze słowo na <Run FontWeight="Bold">LITERALNIE</Run>!
         </TextBlock>
 
-        <TextBlock Grid.Column="0" VerticalAlignment="Top" Margin="32,45,160,0" Height="15px" FontSize="12px">
+        <TextBlock VerticalAlignment="Top" Margin="20,45,160,0" Height="15px" FontSize="11px">
         Wpisz dowolne 5-literowe słowo i naciśnij enter, by spróbować odgadnąć hasło.
         </TextBlock>
 
-        <Border Grid.Column="0" VerticalAlignment="Top"  Width="400px" Height="2px" Background="Gray" Margin="32,75,183,0"/>
+        <Border Grid.Column="0" VerticalAlignment="Top"  Width="370px" Height="3px" Background="Gray" Margin="20,77,210,0"/>
 
-        <TextBlock Grid.Column="0" VerticalAlignment="Top" Margin="30,90,130,0" Height="15px" Width="450px" FontSize="12px">
+        <TextBlock VerticalAlignment="Top" Margin="20,90,130,0" Height="15px" Width="450px" FontSize="11px">
         Po każdej próbie, litery zostaną odpowiednie zaznaczone:
         </TextBlock>
 
+        <Image Source="slowo.jpg" Width="200px" Height="50px" Margin="30,120,370,533"></Image>
+
+        <TextBlock VerticalAlignment="Top" Margin="20,180,130,0" Height="15px" Width="450px" FontSize="11px">
+        Jeśli litera podświetlona jest na zielono, występuje ona w haśle w tym samym miejscu
+        </TextBlock>
+
+        <Image Source="domek.jpg" Width="200px" Height="50px" Margin="30,210,370,440"></Image>
+
+        <TextBlock VerticalAlignment="Top" Margin="20,270,130,0" Height="15px" Width="450px" FontSize="11px">
+        Jeśli litera podświetlona jest na żółto, występuje ona w haśle, lecz w innym miejscu
+        </TextBlock>
+
+        <Image Source="gracz.jpg" Width="200px" Height="50px" Margin="30, 300, 370, 440"></Image>
+
+        <TextBlock VerticalAlignment="Top" Margin="20,377,130,0" Height="16" Width="450px" FontSize="11px">
+        Jeśli litera nie jest podświetlona, nie występuje w haśle
+        </TextBlock>
+
+        <TextBlock VerticalAlignment="Top" Margin="20,417,-42,0" Height="15px" FontSize="11px" FontWeight="Bold" Grid.ColumnSpan="2">
+        W aplikacji przy każdym odpaldeniu dostępne jest nowe hasło, na którego odgadnięcie masz po 6 prób, powodzenia!
+        </TextBlock>
+
+        <TextBlock VerticalAlignment="Top" Margin="30,437,120,0" Height="15px" Width="450px" FontSize="11px" Foreground="#FFFFFF">
+            <Hyperlink NavigateUri="https://www.example.com" TextDecorations="Underline" FontWeight="Bold">Często zadawane pytania</Hyperlink>
+        </TextBlock>
+
+        <TextBlock VerticalAlignment="Top" Margin="30,457,-52,0" Height="15px" FontSize="11px" Grid.ColumnSpan="2">
+            Inspirowane grą <Run FontWeight="Bold">Wordle</Run>
+        </TextBlock>
     </Grid>
 </Window>
