@@ -65,21 +65,21 @@
         Jeśli litera podświetlona jest na żółto, występuje ona w haśle, lecz w innym miejscu
         </TextBlock>
 
-        <Image Source="gracz.jpg" Width="200px" Height="50px" Margin="30, 300, 370, 440"></Image>
+        <Image Source="gracz.jpg" Width="200px" Height="50px" Margin="30,300,370,347"></Image>
 
-        <TextBlock VerticalAlignment="Top" Margin="20,377,130,0" Height="16" Width="450px" FontSize="11px">
+        <TextBlock VerticalAlignment="Top" Margin="20,360,130,0" Height="16" Width="450px" FontSize="11px">
         Jeśli litera nie jest podświetlona, nie występuje w haśle
         </TextBlock>
 
-        <TextBlock VerticalAlignment="Top" Margin="20,417,-42,0" Height="15px" FontSize="11px" FontWeight="Bold" Grid.ColumnSpan="2">
+        <TextBlock VerticalAlignment="Top" Margin="20,390,-42,0" Height="15px" FontSize="11px" FontWeight="Bold" Grid.ColumnSpan="2">
         W aplikacji przy każdym odpaldeniu dostępne jest nowe hasło, na którego odgadnięcie masz po 6 prób, powodzenia!
         </TextBlock>
 
-        <TextBlock VerticalAlignment="Top" Margin="30,437,120,0" Height="15px" Width="450px" FontSize="11px" Foreground="#FFFFFF">
+        <TextBlock VerticalAlignment="Top" Margin="20,420,130,0" Height="15px" Width="450px" FontSize="11px" Foreground="#FFFFFF">
             <Hyperlink NavigateUri="https://www.example.com" TextDecorations="Underline" FontWeight="Bold">Często zadawane pytania</Hyperlink>
         </TextBlock>
 
-        <TextBlock VerticalAlignment="Top" Margin="30,457,-52,0" Height="15px" FontSize="11px" Grid.ColumnSpan="2">
+        <TextBlock VerticalAlignment="Top" Margin="20,450,-52,0" Height="15px" FontSize="11px" Grid.ColumnSpan="2">
             Inspirowane grą <Run FontWeight="Bold">Wordle</Run>
         </TextBlock>
     </Grid>
