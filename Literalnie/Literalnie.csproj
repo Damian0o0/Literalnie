@@ -8,14 +8,26 @@
 
   <ItemGroup>
     <None Remove="domek.jpg" />
+    <None Remove="github.png" />
     <None Remove="gracz.jpg" />
     <None Remove="slowo.jpg" />
+    <None Remove="statystyki.jpg" />
+    <None Remove="ustawienia.jpg" />
+    <None Remove="zasady.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="domek.jpg" />
+    <Resource Include="github.png" />
     <Resource Include="gracz.jpg" />
     <Resource Include="slowo.jpg" />
+    <Resource Include="statystyki.jpg" />
+    <Resource Include="ustawienia.jpg" />
+    <Resource Include="zasady.jpg" />
   </ItemGroup>
 
 </Project>

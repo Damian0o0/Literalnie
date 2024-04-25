@@ -1,0 +1,23 @@
+﻿<Window x:Class="Literalnie.Statystyki"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Literalnie"
+        mc:Ignorable="d" Height="450" Width="350" ResizeMode="NoResize" WindowStyle="None" Background="#121213" Foreground="#FFFFFF">
+    <Grid Margin="15px">
+        <TextBlock FontSize="24px" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top">STATYSTYKI</TextBlock>
+        <Button Margin="283,1,10,374" Background="#538d4e" Foreground="#FFFFFF" BorderThickness="0" BorderBrush="Transparent" Content="X" RenderTransformOrigin="-1.866,0.439" Click="ZamknijStatystyki_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="10" Background="{TemplateBinding Background}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <TextBlock>0 ZAGRANE GRY</TextBlock>
+    </Grid>
+</Window>

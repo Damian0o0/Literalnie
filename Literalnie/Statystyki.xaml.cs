@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,19 +12,16 @@ using System.Windows.Shapes;
 
 namespace Literalnie
 {
-    public partial class Zasady : Window
+    public partial class Statystyki : Window
     {
-        public Zasady()
+        public Statystyki()
         {
             InitializeComponent();
         }
 
-        private void X_Click(object sender, RoutedEventArgs e)
+        private void ZamknijStatystyki_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            this.Close();
         }
     }
 }

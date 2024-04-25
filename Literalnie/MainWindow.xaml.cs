@@ -21,5 +21,12 @@ namespace Literalnie
         {
             InitializeComponent();
         }
+        private void X_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+
+            Plansza plansza = new Plansza();
+            plansza.Show();
+        }
     }
 }

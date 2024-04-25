@@ -10,10 +10,5 @@ namespace Literalnie
 {
     public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            Zasady zasady = new Zasady();
-            zasady.ShowDialog();
-        }
     }
 }
