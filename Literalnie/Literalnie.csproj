@@ -12,6 +12,7 @@
     <None Remove="gracz.jpg" />
     <None Remove="slowo.jpg" />
     <None Remove="statystyki.jpg" />
+    <None Remove="statystykipunkty.jpg" />
     <None Remove="ustawienia.jpg" />
     <None Remove="zasady.jpg" />
   </ItemGroup>
@@ -26,6 +27,7 @@
     <Resource Include="gracz.jpg" />
     <Resource Include="slowo.jpg" />
     <Resource Include="statystyki.jpg" />
+    <Resource Include="statystykipunkty.jpg" />
     <Resource Include="ustawienia.jpg" />
     <Resource Include="zasady.jpg" />
   </ItemGroup>
