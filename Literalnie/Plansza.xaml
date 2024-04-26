@@ -7,27 +7,27 @@
         mc:Ignorable="d"
         Title="Literalnie" Height="800" Width="700" Background="#121212" Foreground="#FFFFFF" ResizeMode="NoResize">
 
-    <Grid x:Name="PlanszaGry" Margin="20, 60, 30, 0">
-        <Button Name="Statystyki" Width="35" Height="35" Grid.Column="0" BorderBrush="Transparent" Click="Statystyki_Click" Margin="0,-55,609,744" HorizontalAlignment="Right">
+    <Grid x:Name="PlanszaGry">
+        <Button Name="Statystyki" Grid.Column="0" BorderBrush="Transparent" Click="Statystyki_Click" Margin="10,12,623,716" RenderTransformOrigin="0.908,1.148">
             <Button.Background>
                 <ImageBrush ImageSource="statystyki.jpg"/>
             </Button.Background>
         </Button>
-        <Button Name="Github" Width="35" Height="35" Grid.Column="0" BorderBrush="Transparent" Click="Github_Click" Margin="46,-55,569,744">
+        <Button Name="Github" Grid.Column="0" BorderBrush="Transparent" Click="Github_Click" Margin="82,12,551,716" RenderTransformOrigin="0.908,1.148">
             <Button.Background>
                 <ImageBrush ImageSource="github.png"/>
             </Button.Background>
         </Button>
-        <Button Name="Ustawienia" Width="35" Height="35" BorderBrush="Transparent" Click="Statystyki_Click" Margin="573,-57,42,746">
+        <Button Name="Ustawienia" BorderBrush="Transparent" Click="Ustawienia_Click" Margin="551,8,82,720" RenderTransformOrigin="0.908,1.148">
             <Button.Background>
                 <ImageBrush ImageSource="ustawienia.jpg"/>
             </Button.Background>
         </Button>
-        <Button Name="Zasady" Width="35" Height="35" Margin="613,-55,2,744" BorderBrush="Transparent" Click="Zasady_Click" RenderTransformOrigin="2.242,0.517">
+        <Button Name="Zasady" BorderBrush="Transparent" Click="Zasady_Click" Margin="623,12,10,716" RenderTransformOrigin="0.908,1.148">
             <Button.Background>
                 <ImageBrush ImageSource="zasady.jpg"/>
             </Button.Background>
         </Button>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"  Width="180" FontSize="32px" FontWeight="Bold" FontFamily="sans-serif;" Margin="227,-57,0,0" >LITERALNIE</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top"  Width="193" FontSize="35px" FontWeight="Bold" FontFamily="sans-serif;" Height="48" Margin="0,20,0,0" >LITERALNIE</TextBlock>
     </Grid>
 </Window>

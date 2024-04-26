@@ -34,7 +34,7 @@
 
         <Image Source="statystykipunkty.jpg" Width="50px" Height="200px" Margin="11,134,259,86"/>
 
-        <TextBlock x:Name="Czas" Margin="120,359,120,33" FontSize="20px">00:00:00</TextBlock>
+        <TextBlock x:Name="Czas" Margin="120,359,120,33" FontSize="20px"></TextBlock>
 
         <TextBlock Margin="99,392,99,0">Do następnego słowa</TextBlock>
     </Grid>

@@ -45,5 +45,10 @@ namespace Literalnie
                 Console.WriteLine("Wystąpił błąd: " + ex.Message);
             }
         }
+        private void Ustawienia_Click(object sender, RoutedEventArgs e)
+        {
+            Ustawienia ustawienia = new Ustawienia();
+            ustawienia.Show();
+        }
     }
 }
