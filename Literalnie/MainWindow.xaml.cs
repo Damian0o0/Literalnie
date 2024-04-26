@@ -23,10 +23,23 @@ namespace Literalnie
         }
         private void X_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            if (App.OpenWindows.ContainsKey("Plansza"))
+            {
+                this.Hide();
+                App.OpenWindows["Plansza"].Activate();
+            }
+            else
+            {
+                Plansza plansza = new Plansza();
+                plansza.Show();
 
-            Plansza plansza = new Plansza();
-            plansza.Show();
+                this.Hide();
+
+                if (!App.OpenWindows.ContainsKey("Plansza"))
+                {
+                    App.OpenWindows.Add("Plansza", plansza);
+                }
+            }
         }
     }
 }

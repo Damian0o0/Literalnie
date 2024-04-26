@@ -1,9 +1,9 @@
 ﻿Zrobione rzeczy:
 
-Okno Zasad po odpaleniu aplikacji oraz po kliknięciu przycisku Zasady.
+Okno Zasad po odpaleniu aplikacji oraz po kliknięciu przycisku Zasady, ma design jak najbardziej zbliżony do designu oryginalnej stron.
 
-Okno Statystyki oraz działajacy timer odliczający czas do następnego dnia tak jak w "Literalnie".
+Okno Statystyki oraz działajacy timer odliczający czas do następnego dnia tak jak w "Literalnie" i ma design jak najbardziej zbliżony do designu oryginalnej stron.
 
-Okno Ustawienia, w którym jest możliwośc zmienienia motywu Okna Plansza.
+Okno Ustawienia ma design jak najbardziej zbliżony do designu oryginalnej stron.
 
 Okno Plansza, które jest całą grą Literalnie i ma design jak najbardziej zbliżony do designu oryginalnej strony.

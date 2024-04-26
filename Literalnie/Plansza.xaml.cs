@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,12 +20,39 @@ namespace Literalnie
         public Plansza()
         {
             InitializeComponent();
+
+            if (App.OpenWindows.ContainsKey(GetType().Name) && App.OpenWindows["Zasady"] == null)
+            {
+                App.OpenWindows[GetType().Name].Activate();
+                Close();
+                return;
+            }
+
+            App.OpenWindows.Add(GetType().Name, this);
+
+            if (App.OpenWindows.ContainsKey("MainWindow"))
+            {
+                App.OpenWindows["MainWindow"].Activate();
+            }
+            else
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+            }
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            App.OpenWindows.Remove(GetType().Name);
+            base.OnClosing(e);
         }
 
         private void Zasady_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            if (App.OpenWindows.ContainsKey("MainWindow"))
+            {
+                App.OpenWindows["MainWindow"].Activate();
+            }
         }
 
         private void Statystyki_Click(object sender, RoutedEventArgs e)
@@ -38,7 +67,8 @@ namespace Literalnie
 
             try
             {
-                Process.Start(url);
+                ProcessStartInfo startInfo = new ProcessStartInfo(url);
+                Process.Start(startInfo);
             }
             catch (Exception ex)
             {
@@ -50,5 +80,6 @@ namespace Literalnie
             Ustawienia ustawienia = new Ustawienia();
             ustawienia.Show();
         }
+        
     }
 }

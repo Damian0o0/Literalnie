@@ -10,5 +10,6 @@ namespace Literalnie
 {
     public partial class App : Application
     {
+        public static Dictionary<string, Window> OpenWindows { get; } = new Dictionary<string, Window>();
     }
 }
