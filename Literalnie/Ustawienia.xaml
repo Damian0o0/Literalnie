@@ -14,8 +14,19 @@
                     <ControlTemplate TargetType="CheckBox">
                         <StackPanel Orientation="Horizontal">
                             <Grid >
-                                <Border Width="45" Height="20" Background="#CCCCCC" CornerRadius="10" Margin="5,0"></Border>
-                                <Border x:Name="button" Height="25" Width="25" CornerRadius="12.5" HorizontalAlignment="Left"  ></Border>
+                                <Border Width="45" Height="20" Background="LightGray" CornerRadius="10" Margin="5,0"></Border>
+                                <Border x:Name="button" Height="25" Width="25" CornerRadius="12.5" HorizontalAlignment="Left">
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="Background" Value="#FFFFFF"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource AncestorType=CheckBox}}" Value="True">
+                                                    <Setter Property="Background" Value="#B59F3B"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                </Border>
                             </Grid>
                             <ContentPresenter x:Name="content" Margin="10,0,0,0" Content="{TemplateBinding Content}" VerticalAlignment="Center"/>
                         </StackPanel>
@@ -41,14 +52,12 @@
                                     <RemoveStoryboard BeginStoryboardName="leftt"></RemoveStoryboard>
                                     <BeginStoryboard Storyboard="{StaticResource right}" x:Name="rightt" ></BeginStoryboard>
                                 </Trigger.ExitActions>
-                                <Setter TargetName="button" Property="Background" Value="#FFFFFF"></Setter>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="true">
                                 <Trigger.ExitActions>
                                     <RemoveStoryboard BeginStoryboardName="rightt"></RemoveStoryboard>
                                     <BeginStoryboard Storyboard="{StaticResource left}" x:Name="leftt" ></BeginStoryboard>
                                 </Trigger.ExitActions>
-                                <Setter TargetName="button" Property="Background" Value="#B59F3B"></Setter>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -72,11 +81,11 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>Podświetlone litery muszą zostać odpowiednio użyte w kolejnych próbach</TextBlock>
         <TextBlock Margin="31,280,333,199">Udostępniaj zgodnie z motywem</TextBlock>
-        <TextBlock Margin="231,335,167,142">gorka.damian@zst.radom.pl</TextBlock>
+        <TextBlock Margin="209,335,188,142">gorka.damian@zst.radom.pl</TextBlock>
 
         <!--Przyciski-->
 
-        <Button Background="#538D4E" Foreground="#FFFFFF" Margin="211,379,142,88" Name="PSDA"
+        <Button Background="#538D4E" Foreground="#FFFFFF" Margin="191,375,164,92" Name="PSDA"
             BorderThickness="0" BorderBrush="Transparent" FontWeight="Bold" Content="Przenieś statystyki do aplikacji!" RenderTransformOrigin="-1.866,0.439">
             <Button.RenderTransform>
                 <TransformGroup>
@@ -96,7 +105,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button Background="#538D4E" Foreground="#FFFFFF" Margin="291,434,219,33" Name="Zamknij" Click="Zamknij_Click"
+        <Button Background="#538D4E" Foreground="#FFFFFF" Margin="268,436,258,31" Name="Zamknij" Click="Zamknij_Click"
             BorderThickness="0" BorderBrush="Transparent" FontWeight="Bold" Content="Zamknij" RenderTransformOrigin="-1.866,0.439">
             <Button.RenderTransform>
                 <TransformGroup>
@@ -116,6 +125,9 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <CheckBox  HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="26" Foreground="#0B4F6C" Margin="483,32,0,0" Height="32" Width="51" ></CheckBox>
+        <CheckBox IsChecked="True" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="26" Foreground="#0B4F6C" Margin="483,27,0,0" Height="32" Width="55"></CheckBox>
+        <CheckBox IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="26" Foreground="#0B4F6C" Margin="483,97,0,0" Height="32" Width="55"></CheckBox>
+        <CheckBox IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="26" Foreground="#0B4F6C" Margin="483,169,0,0" Height="32" Width="55"></CheckBox>
+        <CheckBox IsChecked="True" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="26" Foreground="#0B4F6C" Margin="483,269,0,0" Height="32" Width="55" RenderTransformOrigin="0.479,1.675"/>
     </Grid>
 </Window>
