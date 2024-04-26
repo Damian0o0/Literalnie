@@ -12,14 +12,16 @@ using System.Windows.Shapes;
 
 namespace Literalnie
 {
-    /// <summary>
-    /// Logika interakcji dla klasy Ustawienia.xaml
-    /// </summary>
     public partial class Ustawienia : Window
     {
         public Ustawienia()
         {
             InitializeComponent();
+        }
+
+        private void Zamknij_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

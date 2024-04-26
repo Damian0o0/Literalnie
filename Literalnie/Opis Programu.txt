@@ -4,4 +4,6 @@ Okno Zasad po odpaleniu aplikacji oraz po kliknięciu przycisku Zasady.
 
 Okno Statystyki oraz działajacy timer odliczający czas do następnego dnia tak jak w "Literalnie".
 
+Okno Ustawienia, w którym jest możliwośc zmienienia motywu Okna Plansza.
+
 Okno Plansza, które jest całą grą Literalnie i ma design jak najbardziej zbliżony do designu oryginalnej strony.
