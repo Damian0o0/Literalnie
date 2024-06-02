@@ -75,11 +75,30 @@ namespace Literalnie
                 Console.WriteLine("Wystąpił błąd: " + ex.Message);
             }
         }
+
         private void Ustawienia_Click(object sender, RoutedEventArgs e)
         {
-            Ustawienia ustawienia = new Ustawienia();
+            Ustawienia ustawienia = new UstawSettings();
             ustawienia.Show();
         }
-        
+
+        private void GenerujHaslo_Click(object sender, RoutedEventArgs e)
+        {
+            // Generuj nowe hasło
+            string[] slowa = File.ReadAllLines("hasla.txt");
+            string haslo = slowa[new Random().Next(slowa.Length)];
+
+            // Ustaw wartości textboxów
+            GuessTextBox1.Text = haslo[0].ToString();
+            GuessTextBox2.Text = haslo[1].ToString();
+            GuessTextBox3.Text = haslo[2].ToString();
+            GuessTextBox4.Text = haslo[3].ToString();
+            GuessTextBox5.Text = haslo[4].ToString();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            GenerujHaslo_Click(sender, e);
+        }
     }
 }
