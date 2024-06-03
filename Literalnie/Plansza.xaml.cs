@@ -136,8 +136,6 @@ namespace Literalnie
 
         private void ResetGame()
         {
-            // Resetuj stan gry
-            // Reszta kodu
         }
 
         private void CheckGuess_Click(object sender, RoutedEventArgs e)
