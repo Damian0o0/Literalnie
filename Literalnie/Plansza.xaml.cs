@@ -2,21 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Literalnie
 {
     public partial class Plansza : Window
     {
+        private string correctWord;
+
         public Plansza()
         {
             InitializeComponent();
@@ -39,6 +36,8 @@ namespace Literalnie
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
             }
+
+            LoadRandomWord();
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -78,27 +77,70 @@ namespace Literalnie
 
         private void Ustawienia_Click(object sender, RoutedEventArgs e)
         {
-            Ustawienia ustawienia = new UstawSettings();
+            Ustawienia ustawienia = new Ustawienia();
             ustawienia.Show();
         }
 
         private void GenerujHaslo_Click(object sender, RoutedEventArgs e)
         {
-            // Generuj nowe hasło
-            string[] slowa = File.ReadAllLines("hasla.txt");
-            string haslo = slowa[new Random().Next(slowa.Length)];
-
-            // Ustaw wartości textboxów
-            GuessTextBox1.Text = haslo[0].ToString();
-            GuessTextBox2.Text = haslo[1].ToString();
-            GuessTextBox3.Text = haslo[2].ToString();
-            GuessTextBox4.Text = haslo[3].ToString();
-            GuessTextBox5.Text = haslo[4].ToString();
+            LoadRandomWord();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void LoadRandomWord()
         {
-            GenerujHaslo_Click(sender, e);
+            try
+            {
+                string filePath = "hasla.txt";
+                if (!File.Exists(filePath))
+                {
+                    throw new FileNotFoundException($"Plik '{filePath}' nie został znaleziony.");
+                }
+
+                string[] words = File.ReadAllLines(filePath);
+                if (words.Length == 0)
+                {
+                    throw new InvalidOperationException("Plik 'hasla.txt' jest pusty.");
+                }
+
+                Random rand = new Random();
+                correctWord = words[rand.Next(words.Length)].ToUpper();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd podczas ładowania słowa: {ex.Message}");
+                correctWord = "ERROR"; // Ustawienie domyślnego słowa w przypadku błędu
+            }
+        }
+
+        private void CheckGuess_Click(object sender, RoutedEventArgs e)
+        {
+            TextBox[] guessTextBoxes = new TextBox[]
+            {
+                GuessTextBox1, GuessTextBox2, GuessTextBox3, GuessTextBox4, GuessTextBox5
+            };
+
+            string userGuess = string.Join("", guessTextBoxes.Select(tb => tb.Text.ToUpper()));
+            if (userGuess.Length != 5)
+            {
+                MessageBox.Show("Please enter a 5-letter word.");
+                return;
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                if (userGuess[i] == correctWord[i])
+                {
+                    guessTextBoxes[i].Background = Brushes.Green;
+                }
+                else if (correctWord.Contains(userGuess[i]))
+                {
+                    guessTextBoxes[i].Background = Brushes.Yellow;
+                }
+                else
+                {
+                    guessTextBoxes[i].Background = Brushes.Gray;
+                }
+            }
         }
     }
 }

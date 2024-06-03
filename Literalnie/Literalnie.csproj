@@ -10,6 +10,7 @@
     <None Remove="domek.jpg" />
     <None Remove="github.png" />
     <None Remove="gracz.jpg" />
+    <None Remove="hasla.txt" />
     <None Remove="slowo.jpg" />
     <None Remove="statystyki.jpg" />
     <None Remove="statystykipunkty.jpg" />
@@ -25,6 +26,7 @@
     <Resource Include="domek.jpg" />
     <Resource Include="github.png" />
     <Resource Include="gracz.jpg" />
+    <Resource Include="hasla.txt" />
     <Resource Include="slowo.jpg" />
     <Resource Include="statystyki.jpg" />
     <Resource Include="statystykipunkty.jpg" />
