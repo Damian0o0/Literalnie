@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace Literalnie
@@ -17,6 +19,8 @@ namespace Literalnie
         public Plansza()
         {
             InitializeComponent();
+
+            LoadRandomWord();
 
             if (App.OpenWindows.ContainsKey(GetType().Name) && App.OpenWindows["Zasady"] == null)
             {
@@ -36,9 +40,9 @@ namespace Literalnie
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
             }
-
-            LoadRandomWord();
         }
+
+
 
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -88,35 +92,62 @@ namespace Literalnie
 
         private void LoadRandomWord()
         {
+            string[] words;
             try
             {
-                string filePath = "hasla.txt";
-                if (!File.Exists(filePath))
-                {
-                    throw new FileNotFoundException($"Plik '{filePath}' nie został znaleziony.");
-                }
-
-                string[] words = File.ReadAllLines(filePath);
-                if (words.Length == 0)
-                {
-                    throw new InvalidOperationException("Plik 'hasla.txt' jest pusty.");
-                }
-
-                Random rand = new Random();
-                correctWord = words[rand.Next(words.Length)].ToUpper();
+                words = File.ReadAllLines("hasla.txt");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Wystąpił błąd podczas ładowania słowa: {ex.Message}");
-                correctWord = "ERROR"; // Ustawienie domyślnego słowa w przypadku błędu
+                MessageBox.Show("Error reading the file: " + ex.Message);
+                return;
+            }
+
+            if (words.Length == 0)
+            {
+                MessageBox.Show("No words loaded from the file.");
+                return;
+            }
+
+            Random rand = new Random();
+            correctWord = words[rand.Next(words.Length)].ToUpper();
+            Console.WriteLine("Randomly selected word: " + correctWord); 
+
+            using (StreamWriter writer = new StreamWriter("odpowiedz.txt", true))
+            {
+                writer.WriteLine(correctWord);
             }
         }
 
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (!string.IsNullOrEmpty(e.Text) && char.IsLetter(e.Text[0]))
+            {
+                textBox.Text = e.Text.ToUpper();
+                textBox.CaretIndex = 1;
+                e.Handled = true;
+            }
+        }
+
+
         private void CheckGuess_Click(object sender, RoutedEventArgs e)
         {
+            if (correctWord == null)
+            {
+                MessageBox.Show("Please generate a word first.");
+                return;
+            }
+
             TextBox[] guessTextBoxes = new TextBox[]
             {
-                GuessTextBox1, GuessTextBox2, GuessTextBox3, GuessTextBox4, GuessTextBox5
+        GuessTextBox1, GuessTextBox2, GuessTextBox3, GuessTextBox4, GuessTextBox5,
+        GuessTextBox6, GuessTextBox7, GuessTextBox8, GuessTextBox9, GuessTextBox10,
+        GuessTextBox11, GuessTextBox12, GuessTextBox13, GuessTextBox14, GuessTextBox15,
+        GuessTextBox16, GuessTextBox17, GuessTextBox18, GuessTextBox19, GuessTextBox20,
+        GuessTextBox21, GuessTextBox22, GuessTextBox23, GuessTextBox24, GuessTextBox25,
+        GuessTextBox26, GuessTextBox27, GuessTextBox28, GuessTextBox29, GuessTextBox30
             };
 
             string userGuess = string.Join("", guessTextBoxes.Select(tb => tb.Text.ToUpper()));

@@ -24,15 +24,43 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!-- TextBoxes for guesses -->
-            <TextBox x:Name="GuessTextBox1" Grid.Column="0" Grid.Row="0" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="GuessTextBox2" Grid.Column="1" Grid.Row="0" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="GuessTextBox3" Grid.Column="2" Grid.Row="0" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="GuessTextBox4" Grid.Column="3" Grid.Row="0" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="GuessTextBox5" Grid.Column="4" Grid.Row="0" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="GuessTextBox1" Grid.Column="0" Grid.Row="0" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox2" Grid.Column="1" Grid.Row="0" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox3" Grid.Column="2" Grid.Row="0" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox4" Grid.Column="3" Grid.Row="0" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox5" Grid.Column="4" Grid.Row="0" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+
+            <TextBox x:Name="GuessTextBox6" Grid.Column="0" Grid.Row="1" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox7" Grid.Column="1" Grid.Row="1" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox8" Grid.Column="2" Grid.Row="1" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox9" Grid.Column="3" Grid.Row="1" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox10" Grid.Column="4" Grid.Row="1" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+
+            <TextBox x:Name="GuessTextBox11" Grid.Column="0" Grid.Row="2" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox12" Grid.Column="1" Grid.Row="2" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox13" Grid.Column="2" Grid.Row="2" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox14" Grid.Column="3" Grid.Row="2" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox15" Grid.Column="4" Grid.Row="2" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+
+            <TextBox x:Name="GuessTextBox16" Grid.Column="0" Grid.Row="3" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox17" Grid.Column="1" Grid.Row="3" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox18" Grid.Column="2" Grid.Row="3" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox19" Grid.Column="3" Grid.Row="3" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox20" Grid.Column="4" Grid.Row="3" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+
+            <TextBox x:Name="GuessTextBox21" Grid.Column="0" Grid.Row="4" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox22" Grid.Column="1" Grid.Row="4" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox23" Grid.Column="2" Grid.Row="4" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox24" Grid.Column="3" Grid.Row="4" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox25" Grid.Column="4" Grid.Row="4" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+
+            <TextBox x:Name="GuessTextBox26" Grid.Column="0" Grid.Row="5" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox27" Grid.Column="1" Grid.Row="5" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox28" Grid.Column="2" Grid.Row="5" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox29" Grid.Column="3" Grid.Row="5" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
+            <TextBox x:Name="GuessTextBox30" Grid.Column="4" Grid.Row="5" Margin="5" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
         </Grid>
 
-        <!-- Control Buttons -->
         <Button Name="Statystyki" BorderBrush="Transparent" Click="Statystyki_Click" Margin="10,12,623,716" RenderTransformOrigin="0.908,1.148">
             <Button.Background>
                 <ImageBrush ImageSource="statystyki.jpg"/>
