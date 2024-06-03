@@ -82,11 +82,16 @@ namespace Literalnie
                 ProcessStartInfo startInfo = new ProcessStartInfo(url);
                 Process.Start(startInfo);
             }
+            catch (Win32Exception ex)
+            {
+                Console.WriteLine("Wystąpił błąd Win32: " + ex.Message);
+            }
             catch (Exception ex)
             {
-                Console.WriteLine("Wystąpił błąd: " + ex.Message);
+                Console.WriteLine("Wystąpił inny błąd: " + ex.Message);
             }
         }
+
 
         private void Ustawienia_Click(object sender, RoutedEventArgs e)
         {
