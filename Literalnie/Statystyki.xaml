@@ -23,7 +23,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <TextBlock Margin="27,61,280,328" FontSize="20px">0</TextBlock>
+        <TextBlock Margin="27,61,280,328" FontSize="20px" x:Name="ZagraneGryTextBlock">0</TextBlock>
         <TextBlock Margin="2,97,250,302" FontSize="10px">ZAGRANE GRY</TextBlock>
 
         <TextBlock Margin="142,61,160,328" FontSize="20px" RenderTransformOrigin="4.316,0.637">0</TextBlock>

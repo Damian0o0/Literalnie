@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -14,13 +13,19 @@ namespace Literalnie
 {
     public partial class Plansza : Window
     {
-        private string correctWord;
+        private string[] words = {
+            "konto", "fotka", "cytat", "pokaż", "tylko", "marek", "temat",
+            "kości", "głowa", "wyraz", "sklep", "tosty", "cudna", "cudny", "nudny", "agata", "kubek",
+            "nożyk", "łóżko", "czapa", "drzwi", "zegar", "kreda", "oczko", "taśma", "wafel", "ramka",
+            "karta", "kwiat", "baton", "trawa", "sufit", "lampa", "ogień", "balon", "okrąg", "żabka"
+        };
+        private string secretWord;
+        private int currentRow = 0;
 
         public Plansza()
         {
             InitializeComponent();
-
-            LoadRandomWord();
+            LoadSecretWord();
 
             if (App.OpenWindows.ContainsKey(GetType().Name) && App.OpenWindows["Zasady"] == null)
             {
@@ -41,8 +46,6 @@ namespace Literalnie
                 mainWindow.Show();
             }
         }
-
-
 
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -85,40 +88,34 @@ namespace Literalnie
             ustawienia.Show();
         }
 
-        private void GenerujHaslo_Click(object sender, RoutedEventArgs e)
+        private void LoadSecretWord()
         {
-            LoadRandomWord();
+            var random = new Random();
+            secretWord = words[random.Next(words.Length)].ToUpper();
         }
-
-        private void LoadRandomWord()
+        private void SaveSecretWord()
         {
-            string[] words;
             try
             {
-                words = File.ReadAllLines("hasla.txt");
+                string filePath = "odpowiedz.txt";
+                File.WriteAllText(filePath, secretWord);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error reading the file: " + ex.Message);
-                return;
-            }
-
-            if (words.Length == 0)
-            {
-                MessageBox.Show("No words loaded from the file.");
-                return;
-            }
-
-            Random rand = new Random();
-            correctWord = words[rand.Next(words.Length)].ToUpper();
-            Console.WriteLine("Randomly selected word: " + correctWord); 
-
-            using (StreamWriter writer = new StreamWriter("odpowiedz.txt", true))
-            {
-                writer.WriteLine(correctWord);
+                Console.WriteLine("Wystąpił błąd podczas zapisywania odpowiedzi: " + ex.Message);
             }
         }
 
+        private void IncrementGamesCount()
+        {
+            if (App.OpenWindows.ContainsKey("Statystyki"))
+            {
+                if (App.OpenWindows["Statystyki"] is Statystyki statystykiWindow)
+                {
+                    statystykiWindow.IncrementGamesCount();
+                }
+            }
+        }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -131,47 +128,52 @@ namespace Literalnie
             }
         }
 
-
         private void CheckGuess_Click(object sender, RoutedEventArgs e)
         {
-            if (correctWord == null)
+            if (currentRow >= 6) return;
+
+            TextBox[] textBoxes = new TextBox[5];
+            for (int i = 0; i < 5; i++)
             {
-                MessageBox.Show("Please generate a word first.");
+                textBoxes[i] = (TextBox)GameGrid.Children.Cast<UIElement>()
+                    .First(el => Grid.GetRow(el) == currentRow && Grid.GetColumn(el) == i);
+            }
+
+            string guess = string.Concat(textBoxes.Select(tb => tb.Text.ToUpper()));
+
+            if (guess.Length < 5)
+            {
+                MessageBox.Show("Wprowadź 5 liter.");
                 return;
             }
 
-            TextBox[] guessTextBoxes = new TextBox[]
+            if (guess == secretWord)
             {
-        GuessTextBox1, GuessTextBox2, GuessTextBox3, GuessTextBox4, GuessTextBox5,
-        GuessTextBox6, GuessTextBox7, GuessTextBox8, GuessTextBox9, GuessTextBox10,
-        GuessTextBox11, GuessTextBox12, GuessTextBox13, GuessTextBox14, GuessTextBox15,
-        GuessTextBox16, GuessTextBox17, GuessTextBox18, GuessTextBox19, GuessTextBox20,
-        GuessTextBox21, GuessTextBox22, GuessTextBox23, GuessTextBox24, GuessTextBox25,
-        GuessTextBox26, GuessTextBox27, GuessTextBox28, GuessTextBox29, GuessTextBox30
-            };
-
-            string userGuess = string.Join("", guessTextBoxes.Select(tb => tb.Text.ToUpper()));
-            if (userGuess.Length != 5)
-            {
-                MessageBox.Show("Please enter a 5-letter word.");
+                MessageBox.Show("Gratulacje! Zgadłeś słowo!");
+                Close(); // Zamknij okno gry po wygranej
                 return;
             }
 
             for (int i = 0; i < 5; i++)
             {
-                if (userGuess[i] == correctWord[i])
+                char guessChar = guess[i];
+                if (guessChar == secretWord[i])
                 {
-                    guessTextBoxes[i].Background = Brushes.Green;
+                    textBoxes[i].Background = new SolidColorBrush(Colors.Green);
                 }
-                else if (correctWord.Contains(userGuess[i]))
+                else if (secretWord[i] == guess[i] || secretWord.Contains(guessChar))
                 {
-                    guessTextBoxes[i].Background = Brushes.Yellow;
+                    textBoxes[i].Background = new SolidColorBrush(Colors.Yellow);
                 }
                 else
                 {
-                    guessTextBoxes[i].Background = Brushes.Gray;
+                    textBoxes[i].Background = new SolidColorBrush(Colors.Gray);
                 }
             }
+
+            currentRow++;
         }
+
     }
 }
+

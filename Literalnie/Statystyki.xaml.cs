@@ -17,6 +17,8 @@ namespace Literalnie
     public partial class Statystyki : Window
     {
         private DispatcherTimer timer;
+
+        private int gamesCount = 0;
         public Statystyki()
         {
             InitializeComponent();
@@ -35,6 +37,13 @@ namespace Literalnie
 
             App.OpenWindows.Add(GetType().Name, this);
         }
+
+        public void IncrementGamesCount()
+        {
+            gamesCount++;
+            ZagraneGryTextBlock.Text = gamesCount.ToString();
+        }
+
 
         protected override void OnClosing(CancelEventArgs e)
         {

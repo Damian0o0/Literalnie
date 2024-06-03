@@ -7,3 +7,9 @@ Okno Statystyki oraz działajacy timer odliczający czas do następnego dnia tak
 Okno Ustawienia ma design jak najbardziej zbliżony do designu oryginalnej stron.
 
 Okno Plansza, które jest całą grą Literalnie i ma design jak najbardziej zbliżony do designu oryginalnej strony.
+
+Można wpisać tylko jedną literę i zawsze zmienia się na dużą literę.
+
+Przycisk do sprawdzania odpowiedzi.
+
+Lista słów z których program generuje słowa w pliku "hasla.txt"
