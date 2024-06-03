@@ -19,6 +19,8 @@ namespace Literalnie
         private DispatcherTimer timer;
 
         private int gamesCount = 0;
+        private int totalWins = 0;
+        private int consecutiveWins = 0;
         public Statystyki()
         {
             InitializeComponent();
@@ -37,7 +39,16 @@ namespace Literalnie
 
             App.OpenWindows.Add(GetType().Name, this);
         }
+        public void UpdateStats(int gamesCount, int totalWins, int consecutiveWins)
+        {
+            this.gamesCount = gamesCount;
+            this.totalWins = totalWins;
+            this.consecutiveWins = consecutiveWins;
 
+            ZagraneGryTextBlock.Text = gamesCount.ToString();
+            WygraneGryTextBlock.Text = totalWins.ToString();
+            WygraneZRzeduTextBlock.Text = consecutiveWins.ToString();
+        }
         public void IncrementGamesCount()
         {
             gamesCount++;

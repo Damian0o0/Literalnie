@@ -13,6 +13,10 @@ namespace Literalnie
 {
     public partial class Plansza : Window
     {
+        private int gamesCount = 0;
+        private int consecutiveWins = 0;
+        private int totalWins = 0;
+
         private string[] words = {
             "konto", "fotka", "cytat", "pokaż", "tylko", "marek", "temat",
             "kości", "głowa", "wyraz", "sklep", "tosty", "cudna", "cudny", "nudny", "agata", "kubek",
@@ -26,6 +30,8 @@ namespace Literalnie
         {
             InitializeComponent();
             LoadSecretWord();
+            IncrementGamesCount();
+            UpdateStats();
 
             if (App.OpenWindows.ContainsKey(GetType().Name) && App.OpenWindows["Zasady"] == null)
             {
@@ -128,6 +134,12 @@ namespace Literalnie
             }
         }
 
+        private void ResetGame()
+        {
+            // Resetuj stan gry
+            // Reszta kodu
+        }
+
         private void CheckGuess_Click(object sender, RoutedEventArgs e)
         {
             if (currentRow >= 6) return;
@@ -150,10 +162,12 @@ namespace Literalnie
             if (guess == secretWord)
             {
                 MessageBox.Show("Gratulacje! Zgadłeś słowo!");
-                Close(); // Zamknij okno gry po wygranej
+                totalWins++;
+                consecutiveWins++;
+                UpdateStats();
+                ResetGame();
                 return;
             }
-
             for (int i = 0; i < 5; i++)
             {
                 char guessChar = guess[i];
@@ -174,6 +188,16 @@ namespace Literalnie
             currentRow++;
         }
 
+        private void UpdateStats()
+        {
+            if (App.OpenWindows.ContainsKey("Statystyki"))
+            {
+                if (App.OpenWindows["Statystyki"] is Statystyki statystykiWindow)
+                {
+                    statystykiWindow.UpdateStats(gamesCount, totalWins, consecutiveWins);
+                }
+            }
+        }
     }
 }
 

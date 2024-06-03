@@ -2,7 +2,7 @@
 
 Okno Zasad po odpaleniu aplikacji oraz po kliknięciu przycisku Zasady, ma design jak najbardziej zbliżony do designu oryginalnej stron.
 
-Okno Statystyki oraz działajacy timer odliczający czas do następnego dnia tak jak w "Literalnie" i ma design jak najbardziej zbliżony do designu oryginalnej stron.
+Okno Statystyki oraz działajacy timer odliczający czas do następnego dnia tak jak w "Literalnie", zlicza zagrane gry, wygrane i wygrane z rzędu, i ma design jak najbardziej zbliżony do designu oryginalnej stron.
 
 Okno Ustawienia ma design jak najbardziej zbliżony do designu oryginalnej stron.
 
@@ -12,4 +12,4 @@ Można wpisać tylko jedną literę i zawsze zmienia się na dużą literę.
 
 Przycisk do sprawdzania odpowiedzi.
 
-Lista słów z których program generuje słowa w pliku "hasla.txt"
+Wydaje mi się, że gra działa identycznie jak na stronie https://literalnie.fun.
